@@ -12,21 +12,43 @@
         <body>
             <button onclick="console.log(`Cart Quantity: ${Quantity}`)">Show Quantity</button>
             <button onclick="
-            Quantity +=1
-            console.log(`Cart Quantity: ${Quantity}`)
+            Quantity +=1;
+            console.log(`Cart Quantity: ${Quantity}`);
             ">Add to Cart </button>
             <button onclick="
-            Quantity +=2
-            console.log(`Cart Quantity: ${Quantity}`)
+            Quantity +=2;
+            console.log(`Cart Quantity: ${Quantity}`);
             ">+2</button>
             <button onclick="
-            Quantity +=3
-            console.log(`Cart Quantity: ${Quantity}`)
+            Quantity +=3;
+            console.log(`Cart Quantity: ${Quantity}`);
             ">+3</button>
+
+            <!*Added +4 and +5, remove, -2, -3 -->
             <button onclick="
-            Quantity =0
-            console.log(`Cart Quantity: ${Quantity}`)
+            Quantity += 4;
+            console.log(`Cart Quantity: ${Quantity}`);
+            ">+4</button>
+            <button onclick="
+            Quantity += 5;
+            console.log(`Cart Quantity: ${Quantity}`);
+            ">+5</button>
+            <button onclick="
+            Quantity =0;
+            console.log(`Cart Quantity: ${Quantity}`);
             ">Reset Cart</button>
+            <button onclick="
+            Quantity -= 1;
+            console.log(`Cart Quantity: ${Quantity}`)
+            ">Remove from cart</button> 
+            <button onclick="
+            Quantity -=2;
+            console.log(`Cart Quantity: ${Quantity}`)
+            ">-2</button>
+            <buttono onclick="
+            Quantity -= 3
+            console.log(`Cart Quantity: ${Quantity}`)
+            ">-3</button>
         <script>
         let Quantity = 0;
 
