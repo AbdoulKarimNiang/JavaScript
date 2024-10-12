@@ -1,0 +1,160 @@
+    <!DOCTYPE html>
+<body>
+    <title>Boolean Exercises</title>
+
+    // 6K
+    <button onclick="console.log(`Cart Quantity: ${Quantity}`)">Show Quantity</button>
+    <button onclick="
+
+        if (Quantity + 1 > 10){
+            alert('The chart is full');
+        } else{
+        Quantity +=1;
+        console.log(`Cart Quantity: ${Quantity}`)
+    }
+    ">Add to Cart </button>
+        <button onclick="
+        if (Quantity + 2 > 10){
+            alert('The chart is full');
+        } else{
+        Quantity +=2};
+        console.log(`Cart Quantity: ${Quantity}`)
+        ">+2</button>
+        <button onclick="
+        if (Quantity + 3 > 10){
+            alert('The chart is full')
+        } else{
+        Quantity +=3};
+        console.log(`Cart Quantity: ${Quantity}`)
+    ">+3</button>
+
+    <!-- Added +5, remove, -2, -3 -->
+    <button onclick="
+        if (Quantity + 5 > 10){
+            alert('The chart is full')
+        } else{
+        Quantity +=5};
+        console.log(`Cart Quantity: ${Quantity}`)
+    ">+5</button>
+    <button onclick="
+        Quantity = 0;
+        console.log(`Cart Quantity: ${Quantity}`);
+        ">Reset Cart</button>
+        <button onclick="
+        Quantity -= 1;
+        console.log(`Cart Quantity: ${Quantity}`)
+    ">Remove from cart</button> 
+    <button onclick="
+        Quantity -= 2;
+        console.log(`Cart Quantity: ${Quantity}`)
+        ">-2</button>
+        <buttono onclick="
+        Quantity -= 3
+        console.log(`Cart Quantity: ${Quantity}`)
+    ">-3</button>.\
+
+
+
+    
+    <script> 
+
+    // 6a - 6b
+    let now = Date.now()
+    let date =  new Date(now)
+    let hour = (date.getUTCHours)()
+
+
+    console.log( now)
+    console.log( date)
+    console.log(date.getUTCHours)
+    
+    if ( 6 <= hour &&  hour <= 12) {
+        console.log('Good Morning!')
+    } else if ( 13 <= hour &&  hour <= 17) {
+        console.log('Good Afternoon!')
+    } else {
+        console.log('Good Night!')
+    }   
+
+    // 6c
+
+    let name = 'Abdoul Karim Niang'
+
+    if ( 6 <= hour &&  hour <= 12) {
+        console.log(`Good Morning ${name}`)
+    } else if ( 13 <= hour &&  hour <= 17) {
+        console.log(`Good  Afternoon! ${name}`);
+    } else {
+        console.log(`Good Night! ${name}`);
+    }   
+
+    // 6d
+
+    let maxAge = 80
+    let age = Math.floor( Math.random() * maxAge +  1) ;
+
+    console.log(age);
+
+    if (age <= 6 || age >= 65){
+        console.log('Discount!');
+    } else {
+        console.log('Not eligible for discount');
+    }
+
+    // 6e
+
+    let dayOfWeekNumber= date.getDay() 
+
+    let holiday = ( dayOfWeekNumber = 6 ||  dayOfWeekNumber === 0);
+
+    let week = ['Sunday', 'Monday', 'Tuesday' , 'Wednesday', 'Thursday', 'Friday', 'Saturday'] ;
+
+    let dayOfWeek =  week[dayOfWeekNumber];
+
+
+    if ( (age <= 6 || age >= 65) && holiday){
+        console.log(`Discount! It's also ${dayOfWeek}`);
+    } else {
+        console.log('Not eligible for discount');
+    }
+    
+
+    // 6f-6g
+
+    let randomNumber = Math.random()
+
+    if( randomNumber < 0.5){
+        console.log('Head');
+    } else {
+        console.log('Tails');
+    }
+
+
+    // 6h
+
+    let result = ''
+    
+    if( randomNumber < 0.5){
+        result = 'Head';
+    } else {
+        result = 'Tails';
+    }
+
+    // 6j 
+
+    result = randomNumber < 0.5 ? 'Head': 'Tails'
+
+    // 
+    
+    let Quantity = 0;
+
+
+
+
+
+
+
+    resul = randomNumber > 0.65 ? 'Head': 'Tails';
+
+    </script>
+</body>
