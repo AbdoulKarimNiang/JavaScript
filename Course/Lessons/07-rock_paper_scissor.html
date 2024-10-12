@@ -1,54 +1,92 @@
 <!DOCTYPE html>
 <html>
     <title>Rock Paper Scissor</title>
-    <p>Rock Paper Scissor</p>
-    <button onclick="
-        playerMove = 'Rock'
+    <p class="paragraph">Rock Paper Scissor</p>
+
+    <style>
+        .gameButton{
+            background-color: darkcyan;
+            border-width: 0cap;
+            border-color: aliceblue;
+            border-style: dotted;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            color: white ;
+        }
+
+        .paragraph {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            color:darkcyan ;
+            font-style: bold;
+        }
+    </style>
+
+    <button class="gameButton" onclick="
+        playerMove = 'Rock';
         
-        computerMove = pickComputerMove()
+        computerMove = pickComputerMove();
 
-        if(computerMove === 'Rock') {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. It\'s a tie!`)
-        } else if (computerMove === 'Paper') {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. You lose`)
-        } else {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. You won`)
-        }">Rock</button>
+        playGame(playerMove, computerMove);        
 
-    <button onclick="
-        playerMove = 'Paper'
+        ">Rock</button>
 
-        computerMove = pickComputerMove()
+    <button class="gameButton" onclick="
+        playerMove = 'Paper';
 
-        if(computerMove === 'Paper') {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. It\'s a tie!`)
-        } else if (computerMove === 'Scissor') {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. You lose`)
-        } else {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. You won`)
-        }">Paper</button>
-    <button onclick="
-        playerMove = 'Scissor'
+        computerMove = pickComputerMove();
+        playGame(playerMove, computerMove);    
+    ">Paper</button>
+    <button class="gameButton" onclick="
+        playerMove = 'Scissor';
 
-        computerMove = pickComputerMove()
+        computerMove = pickComputerMove();
 
-        if(computerMove === 'Scissor') {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. It\'s a tie!`)
-        } else if (computerMove === 'Rock') {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. You lose`)
-        } else {
-            alert(`You chose ${playerMove}. The computer chose ${computerMove}. You won`)
-        }">Scissor</button>
+        playGame(playerMove, computerMove);    
+    ">Scissor</button>
     </body>
 
     <script>
-        let playerMove = ''
+        let playerMove = '';
        
-        moves = ['Rock', 'Paper','Scissor']
+        moves = ['Rock', 'Paper','Scissor'];
 
         function pickComputerMove() {
-            move = moves[ Math.floor (Math.random() * moves.length)]
-            return move
+            move = moves[ Math.floor (Math.random() * moves.length)];
+            return move;
         }  
+        
+        let result = ''
+
+        function playGame (movePlayer, moveComputer) {
+            
+            if (movePlayer === 'Rock'){
+            
+                if(moveComputer === 'Rock') {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. It\'s a tie!`);
+                } else if (moveComputer === 'Paper') {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. You lose`);
+                } else {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. You won`);
+                }     
+            } else if (movePlayer === 'Scissor'){
+            
+                if(moveComputer === 'Scissor') {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. It\'s a tie!`);
+                } else if (moveComputer === 'Rock') {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. You lose`);
+                } else {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. You won`);
+                }
+            } else {
+                if(moveComputer === 'Paper') {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. It\'s a tie!`);
+                } else if (moveComputer === 'Scissor') {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. You lose`);
+                } else {
+                    alert(`You chose ${playerMove}. The computer chose ${moveComputer}. You won`);
+                }
+            }
+        }
     </script>
 </html>
