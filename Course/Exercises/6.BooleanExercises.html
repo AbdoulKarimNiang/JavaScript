@@ -1,8 +1,8 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <body>
     <title>Boolean Exercises</title>
 
-    // 6K
+    <!-- 6K --> 
     <button onclick="console.log(`Cart Quantity: ${Quantity}`)">Show Quantity</button>
     <button onclick="
 
@@ -45,17 +45,11 @@
         console.log(`Cart Quantity: ${Quantity}`)
     ">Remove from cart</button> 
     <button onclick="
-        Quantity -= 2;
-        console.log(`Cart Quantity: ${Quantity}`)
-        ">-2</button>
-        <buttono onclick="
-        Quantity -= 3
-        console.log(`Cart Quantity: ${Quantity}`)
-    ">-3</button>.\
-
-
-
-    
+       Quantity - 2 < 0 ? alert('Not enought items') : (Quantity -= 2, console.log(`Cart Quantity ${Quantity}`))
+    ">-2</button>
+    <button onclick="
+      Quantity -3 < 0 ? alert('Not enought items') : (Quantity -= 3, console.log(`Cart Quantity ${Quantity}`))
+    ">-3</button>
     <script> 
 
     // 6a - 6b
@@ -147,12 +141,6 @@
     // 
     
     let Quantity = 0;
-
-
-
-
-
-
 
     resul = randomNumber > 0.65 ? 'Head': 'Tails';
 
