@@ -5,7 +5,7 @@
     <button onclick="
         playerMove = 'Rock'
         
-        computerMove = moves[ Math.floor (Math.random() * moves.length)]
+        computerMove = pickComputerMove()
 
         if(computerMove === 'Rock') {
             alert(`You chose ${playerMove}. The computer chose ${computerMove}. It\'s a tie!`)
@@ -18,7 +18,7 @@
     <button onclick="
         playerMove = 'Paper'
 
-        computerMove = moves[ Math.floor (Math.random() * moves.length)]
+        computerMove = pickComputerMove()
 
         if(computerMove === 'Paper') {
             alert(`You chose ${playerMove}. The computer chose ${computerMove}. It\'s a tie!`)
@@ -30,7 +30,7 @@
     <button onclick="
         playerMove = 'Scissor'
 
-        computerMove = moves[ Math.floor (Math.random() * moves.length)]
+        computerMove = pickComputerMove()
 
         if(computerMove === 'Scissor') {
             alert(`You chose ${playerMove}. The computer chose ${computerMove}. It\'s a tie!`)
@@ -43,6 +43,12 @@
 
     <script>
         let playerMove = ''
+       
         moves = ['Rock', 'Paper','Scissor']
+
+        function pickComputerMove() {
+            move = moves[ Math.floor (Math.random() * moves.length)]
+            return move
+        }  
     </script>
 </html>
