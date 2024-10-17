@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <title>Functions Exercises</title>
+
+    
+    <body>
+        <p>
+            <button onclick="
+            updateCalculation(1);
+            ">1</button>
+            <button onclick="
+            updateCalculation(2);
+            ">2</button>
+            <button onclick="
+            updateCalculation(3);
+            ">3</button>
+            <button onclick="
+            updateCalculation(' + ');
+            ">+</button>
+            
+        </p>
+            <button onclick="
+            updateCalculation(4);
+            ">4</button>
+            <button onclick="
+            updateCalculation(5);
+            ">5</button>
+            <button onclick="
+            updateCalculation(6);
+            ">6</button>
+            <button onclick="
+             updateCalculation('-');
+            ">-</button>
+        <p>
+            <button onclick="
+             updateCalculation(7);
+            ">7</button>
+            <button onclick="
+             updateCalculation(8);
+            ">8</button>
+            <button onclick="
+             updateCalculation(9);
+            ">9</button>
+            <button onclick="
+             updateCalculation('*');
+            ">*</button>
+        </p>
+            <button onclick="
+             updateCalculation(0);
+            ">0</button>
+            <button onclick="
+            resultCalculator =  eval(resultCalculator);
+            console.log(resultCalculator);
+            ">=</button> 
+            <button onclick="
+            resultCalculator += '.';
+            ">.</button>
+            <button onclick="
+            resultCalculator += '/'
+            console.log(resultCalculator);
+            ">/</button>
+        <p>
+            <button onclick="resultCalculator=''">Clear</button>
+        </p> 
+    
+            <button onclick="console.log(`Cart Quantity: ${Quantity}`)">Show Quantity</button>
+            <button onclick="
+            updateQuantity(1);
+            ">Add to Cart </button>
+            <button onclick="
+            updateQuantity(2);
+            ">+2</button>
+            <button onclick="
+            updateQuantity(3);
+            ">+3</button>
+            <button onclick="
+            updateQuantity(4)
+            ">+4</button>
+            <button onclick="
+            updateQuantity(5);
+            ">+5</button>
+            <button onclick="
+            Quantity =0;
+            console.log(`Cart Quantity: ${Quantity}`);
+            ">Reset Cart</button>
+            <button onclick="
+            updateQuantity(-1);
+            ">Remove from cart</button> 
+            <button onclick="
+            updateQuantity(-2);
+            ">-2</button>
+            <button onclick="
+            updateQuantity(-3);
+            ">-3</button>
+    </body>
+
+    <script>
+    // 7a-b-c   
+    function greet(name){
+        name && console.log(`Hello ${name}!`) || console.log('Hi there!');
+    }
+
+    // greet(name='Giorgia');
+    // greet(name='Abdoul');
+
+    greet()  
+    
+    // 7d
+
+    function convertToFahrenheit(grade){
+        let converted = (grade * 9 / 5 ) + 32;
+        return converted
+    }
+
+    console.log(convertToFahrenheit(25))
+
+    // 7e
+
+    function convertToCelcius(gradeFarenheit){
+        let celcius = (gradeFarenheit -32) * 5/ 9;
+        return celcius  
+    }
+
+    console.log(convertToCelcius(86))
+
+    // 7f
+    function convertTemperature(degrees, unit){
+        if(unit.toLowerCase() === 'f'){
+           return convertToCelcius(degrees).toString() + 'F';
+        } else if (unit.toLowerCase() === 'c'){
+            return convertToFahrenheit(degrees).toString() + 'C';
+        } else {
+            message = 'You didn\'t insert a proper letter \nPlease use \'f\' or \'c\''
+            return message
+        }
+
+    }
+
+    console.log(convertTemperature(25,'C'))
+    console.log(convertTemperature(86,'F'))
+    
+    // 7g-h-i
+
+    function convertLenght(lenght, from, to){
+        if (from === 'km'){
+            if (to =='km'){
+                return lenght
+            }
+            else if (to === 'miles'){
+            miles = lenght * 1.6;
+            return miles ;
+            }  else if (to === 'ft'){
+            miles = lenght * 3281;
+            return miles ;
+            }
+            else{
+                message = `Invalid unit: ${from} or ${to}`
+                return message 
+            }
+        }    
+        if (from === 'miles') {
+            if (to =='miles'){
+                return lenght
+            } else if (to === 'km'){
+                km = lenght * 1.6;
+                return km;
+            } else if (to === 'ft'){
+                km = lenght * 5280;
+                return km;
+            }
+            else{
+                message = `Invalid unit: ${from} or ${to}`
+                return message
+            }
+        }
+        if (from === 'ft') {
+            if (to =='ft'){
+                return lenght
+            } else if (to === 'km'){
+                km = lenght / 3281;
+                return km;
+            } else if (to === 'miles'){
+                km = lenght / 5280;
+                return km;
+            }else{
+                message = `Invalid unit: ${from} or ${to}`
+                return message
+            }
+        } else {
+            message = `Invalid unit: ${from} or ${to}`
+            return message
+        }
+
+        }
+
+    console.log(convertLenght(50, 'miles', 'km'))
+    console.log(convertLenght(32, 'km', 'miles'))
+    console.log(convertLenght(50, 'km', 'km'))
+
+    console.log(convertLenght(5, 'miles', 'km'))
+    console.log(convertLenght(5, 'miles', 'ft'))
+    console.log(convertLenght(5, 'km', 'ft'))
+    console.log(convertLenght(5, 'lbs', 'lbs'))
+
+    // 7j
+    let resultCalculator = ''
+    let Quantity = 0
+    function updateCalculation(value){
+        resultCalculator += value
+        return console.log(resultCalculator);
+    }    
+
+    function updateQuantity(value){
+        if (Quantity + value > 10){
+            alert('Too much Items would be added\nTry reducing the number clicked in the button');
+            return;
+        } 
+        if (Quantity + value < 0){
+            alert('Too much Items would be removed\nTry reducing the number clicked in the button');
+            return;
+        } else{
+            Quantity += value;
+            messageCart = `Cart Quantity: ${Quantity}`;
+            return console.log(messageCart);
+        }
+    }
+    </script>
+
+    
+
+</html>
