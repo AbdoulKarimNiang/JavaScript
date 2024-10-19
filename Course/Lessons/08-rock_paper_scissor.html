@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <title>Rock Paper Scissor</title>
+    <p class="paragraph">Rock Paper Scissor</p>
+
+    <style>
+        .gameButton{
+            background-color: darkcyan;
+            border-width: 0cap;
+            border-color: aliceblue;
+            border-style: dotted;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            color: white ;
+            cursor: pointer;
+        }
+
+        .paragraph {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            color:darkcyan ;
+            font-style: bold;
+        }
+    </style>
+
+    <button class="gameButton" onclick="
+        game.playerMove = 'Rock';
+        game.computerMove = pickComputerMove();
+        playGame(game); 
+        ">Rock</button>
+
+    <button class="gameButton" onclick="
+        game.playerMove = 'Paper';
+        game.computerMove = pickComputerMove();
+        playGame(game);    
+    ">Paper</button>
+    <button class="gameButton" onclick="
+        game.playerMove = 'Scissor';
+        game.computerMove = pickComputerMove();
+        playGame(game);
+    ">Scissor</button>
+
+    <button onclick="
+        resetScore()
+    " class="gameButton">Reset Score</button>
+    </body>
+
+    <script>
+
+        let game = {
+            playerMove: '',
+            computerMove:'',
+            result:''
+        }
+        
+        let scores = {
+            'wins': 0,
+            'loses':0,
+            'ties':0
+        }
+
+        moves = ['Rock', 'Paper','Scissor'];
+
+        function pickComputerMove() {
+            move = moves[ Math.floor (Math.random() * moves.length)];
+            return move;
+        }  
+        
+
+        function playGame () {
+            
+            if (game.playerMove === 'Rock'){
+                
+                if(game.computerMove === 'Rock') {
+                    game.result = 'tie'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. It\'s a ${game.result}!\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`);
+                } else if (game.computerMove === 'Paper') {
+                    game.result = 'lose'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
+                } else {
+                    game.result = 'win'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
+                }     
+            } else if (game.playerMove === 'Scissor'){
+            
+                if(game.computerMove === 'Scissor') {
+                    game.result = 'tie'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. It\'s a ${game.result}!\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`);
+                } else if (game.computerMove === 'Rock') {
+                    game.result = 'lose'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
+                } else {
+                    game.result = 'win'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
+                }
+            } else if (game.playerMove === 'Paper') {
+                if(game.computerMove === 'Paper') {
+                    game.result = 'tie'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. It\'s a ${game.result}!\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`);
+                } else if (game.computerMove === 'Scissor') {
+                    game.result = 'lose'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
+                } else {
+                    game.result = 'win'
+                    updateScore()
+                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
+                }
+            }
+        }
+
+        function updateScore () {
+            if (game.result === 'win'){
+                scores.wins += 1;
+            } else if (game.result === 'lose'){
+                scores.loses += 1;
+            } else {
+                scores.ties += 1;
+            }
+        }
+
+        function resetScore(){
+            scores.wins = 0;
+            scores.loses = 0;
+            scores.ties = 0;
+        }
+    </script>
+</html>
