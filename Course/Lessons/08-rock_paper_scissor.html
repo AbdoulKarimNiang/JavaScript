@@ -6,13 +6,14 @@
     <style>
         .gameButton{
             background-color: darkcyan;
-            border-width: 0cap;
+            border-width: 0;
             border-color: aliceblue;
             border-style: dotted;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-style: normal;
             color: white ;
             cursor: pointer;
+            padding: 10px;
         }
 
         .paragraph {
@@ -46,6 +47,8 @@
     </body>
 
     <script>
+        
+        let localScore = JSON.parse(localStorage.getItem('scores')); 
 
         let game = {
             playerMove: '',
@@ -53,11 +56,7 @@
             result:''
         }
         
-        let scores = {
-            'wins': 0,
-            'loses':0,
-            'ties':0
-        }
+        let scores = localScore
 
         moves = ['Rock', 'Paper','Scissor'];
 
@@ -88,33 +87,29 @@
             
                 if(game.computerMove === 'Scissor') {
                     game.result = 'tie'
-                    updateScore()
-                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. It\'s a ${game.result}!\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`);
                 } else if (game.computerMove === 'Rock') {
                     game.result = 'lose'
-                    updateScore()
-                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
                 } else {
                     game.result = 'win'
-                    updateScore()
-                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
                 }
             } else if (game.playerMove === 'Paper') {
                 if(game.computerMove === 'Paper') {
                     game.result = 'tie'
-                    updateScore()
-                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. It\'s a ${game.result}!\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`);
                 } else if (game.computerMove === 'Scissor') {
                     game.result = 'lose'
-                    updateScore()
-                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
                 } else {
                     game.result = 'win'
-                    updateScore()
-                    alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. You ${game.result}\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}`);
                 }
             }
+            updateScore()
+            return alert(`You chose ${game.playerMove}. The computer chose ${game.computerMove}. It\'s a ${game.result}!\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`);
+
         }
+
+        
+        scoreString = JSON.stringify(scores);
+        
+        localStorage.setItem('scores', scoreString);
 
         function updateScore () {
             if (game.result === 'win'){
@@ -124,12 +119,15 @@
             } else {
                 scores.ties += 1;
             }
+            localStorage.setItem('scores', JSON.stringify(scores));
+
         }
 
         function resetScore(){
             scores.wins = 0;
             scores.loses = 0;
             scores.ties = 0;
+            localStorage.setItem('scores', JSON.stringify(scores));
         }
     </script>
 </html>

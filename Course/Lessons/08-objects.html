@@ -37,18 +37,54 @@
         }
     }
     
-    console.log(product2);
-    console.log(product2.name);
+    // console.log(product2);
+    // console.log(product2.name);
     
     // use bracket notation
-    console.log(product2.delivery-time);
-    consolde.log(product2['delivery-time'];)
-    console.log(product2.rating.count);
+    // error --> console.log(product2.delivery-time);
+    // console.log(product2['delivery-time']);
+    // console.log(product2.rating.count);
     
     // Methods
 
-    product2.fun();
+    // product2.fun();
+
+    // // JSON Objects
+    // console.log(JSON.stringify(product2))
+    // const jsonString = JSON.stringify(product2)
+    // console.log(JSON.parse(jsonString))
+
+    // // Remember that object can be compared directly
+    // // actually is compared the reference to the memory
+
+    const object4 = {
+        message: 'Hello',
+        price: 1090
+    };
+
+    // Destructuring
+
+    // The following two syntax are equal
+
+    // const message = object4.message;
+
+    const {message, price} = object4;
+
+    console.log(message, price);
+
+    // Shorthands
+    const object5 = {
+        message,
+        // method: function method(){
+        //     console.log('method');
+        // }
+        method(){
+            console.log('Method!');
+        }
+    }
+
+    object5.method()
     </script>
 
-
+    
 </html>
