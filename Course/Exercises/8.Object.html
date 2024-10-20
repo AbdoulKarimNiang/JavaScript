@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<title>8.Object Exercises<</title>
+    <body>
+        
+    </body>
+
+    <script>
+    // 8.a
+    const baseballProduct = {
+        name: 'Basketball',
+        price: 2095
+    }
+    console.log(baseballProduct);
+
+    // 8.b
+
+    baseballProduct.price += 500;
+
+    console.log(baseballProduct);
+
+    // 8.c
+
+    baseballProduct['delivery-time'] = '3days';
+    console.log(baseballProduct);
+
+    // 8.d 
+
+    function comparePrice(product1, product2){
+        if(product1.price > product2.price){
+            return console.log(`The ${product1.name} is greater`, product1);
+        } else if (product2.price > product1.price){
+            return console.log(`The ${product2.name} is greater`, product2);
+        }else {
+            return console.log('Neither one of the two is greater')
+         }   
+    }
+    
+    footballProduct = {
+        name: 'Football',
+        price: 1400,
+        'delivery-days': '1day'
+    }
+    
+    comparePrice(baseballProduct, footballProduct)
+    
+    // 8e
+
+    function isSameProducts(product1, product2){
+        if ( (product1.name === product2.name) && (product.price == product2.price )){
+            console.log('They are the same product');
+        } else {}
+            console.log('They are NOT the same product')
+    }
+
+    isSameProducts(baseballProduct, footballProduct)
+
+    // 8f    
+    const string = 'Good Moorning'
+
+    console.log(string.toLowerCase())
+
+    // 8g
+
+    console.log(string.repeat(2))
+
+    </script>
