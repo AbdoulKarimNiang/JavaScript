@@ -1,7 +1,92 @@
 <!DOCTYPE html>
-<title>8.Object Exercises<</title>
+<title>8.Object Exercises</title>
+    <!-- 8h -->
     <body>
-        
+        <p>Calculator</p>
+        <p>
+            <button onclick="
+            resultCalculator += 1
+            console.log(resultCalculator);
+            ">1</button>
+            <button onclick="
+            resultCalculator += 2;
+            console.log(resultCalculator);
+            ">2</button>
+            <button onclick="
+            resultCalculator += 3
+            console.log(resultCalculator);
+            ">3</button>
+            <button onclick="
+            resultCalculator += ' + '
+            console.log(resultCalculator);
+            ">+</button>
+            
+        </p>
+            <button onclick="
+            resultCalculator += 4;
+            console.log(resultCalculator);
+            ">4</button>
+            <button onclick="
+            resultCalculator += 5
+            console.log(resultCalculator);
+            ">5</button>
+            <button onclick="
+            resultCalculator += '6'
+            console.log(resultCalculator);
+            ">6</button>
+            <button onclick="
+            resultCalculator += '-'
+            console.log(resultCalculator);
+            ">-</button>
+        <p>
+            <button onclick="
+            resultCalculator += '7'
+            console.log(resultCalculator);
+            ">7</button>
+            <button onclick="
+            resultCalculator += 8;
+            console.log(resultCalculator);
+            ">8</button>
+            <button onclick="
+            resultCalculator += 9
+            console.log(resultCalculator);
+            ">9</button>
+            <button onclick=
+            "resultCalculator += '*'
+            console.log(resultCalculator);
+            ">*</button>
+        </p>
+            <button onclick="
+            resultCalculator += 0
+            console.log(resultCalculator);
+            ">0</button>
+            <button onclick="
+            resultCalculator =  eval(resultCalculator);
+            console.log(resultCalculator);
+            localStorage.setItem('resultCalculator', JSON.stringify(resultCalculator))
+            ">=</button> 
+            <button onclick="
+            resultCalculator += '.'
+            console.log(resultCalculator);
+            ">.</button>
+            <button onclick="
+            resultCalculator += '/'
+            console.log(resultCalculator);
+            ">/</button>
+        <p>
+            <button onclick="resultCalculator=''">Clear</button>
+        </p>
+        <p>Head & Tails</p>
+        <button onclick="
+        playerGuess = 'heads';
+        computerChoice();
+        console.log(playGame());
+        ">Heads</button>
+        <button onclick="
+        playerGuess = 'tails';
+        computerChoice();
+        console.log(playGame());
+        ">Tails</button>
     </body>
 
     <script>
@@ -63,4 +148,32 @@
 
     console.log(string.repeat(2))
 
+    // 8h
+    let resultCalculator = localStorage.getItem('resultCalculator') || '';
+    let playerGuess = '' ;
+
+    let coin = ''
+    function computerChoice(){
+        
+        alternatives = ['heads', 'tails'];
+        randomValue =  Math.floor(Math.random() * alternatives.length);
+        coin= alternatives[randomValue];
+        return coin
+    }
+    
+    console.log(coin)
+
+    function playGame() {
+        if ( ( alternatives.includes(playerGuess))  && ( playerGuess == coin) ) {
+            result = 'Win';
+            return result;
+        } else if ( (alternatives.includes(playerGuess)) && ( playerGuess !== coin) ) {
+            result = 'Lost'
+            return result
+        } else {
+            result = 'Something wrong'
+        }
+    
+    }
+    
     </script>
