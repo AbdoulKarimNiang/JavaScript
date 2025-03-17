@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissor</title>
+    <style>
+        .gameButton{
+            background-color: darkcyan;
+            border-width: 0;
+            border-color: aliceblue;
+            border-radius: 25px;
+            border-style: dotted;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .paragraph {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: normal;
+            color: darkcyan;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p class="paragraph">Rock Paper Scissor</p>
+
+    <button class="gameButton" onclick="
+        game.playerMove = 'Rock';
+        game.computerMove = pickComputerMove();
+        playGame(game); 
+        ">Rock</button>
+
+    <button class="gameButton" onclick="
+        game.playerMove = 'Paper';
+        game.computerMove = pickComputerMove();
+        playGame(game);    
+    ">Paper</button>
+    <button class="gameButton" onclick="
+        game.playerMove = 'Scissor';
+        game.computerMove = pickComputerMove();
+        playGame(game);
+    ">Scissor</button>
+
+    <button onclick="
+        resetScore()
+    " class="gameButton">Reset Score</button>
+
+    <script>
+        // Initialize scores with default values if not found in localStorage
+        let localScore = JSON.parse(localStorage.getItem('scores'));
+        
+        if (!localScore) {
+            localScore = {
+                wins: 0,
+                loses: 0,
+                ties: 0
+            };
+        }
+        
+        let scores = localScore;
+        
+        let game = {
+            playerMove: '',
+            computerMove: '',
+            result: ''
+        }
+        
+        const moves = ['Rock', 'Paper', 'Scissor'];
+
+        function pickComputerMove() {
+            return moves[Math.floor(Math.random() * moves.length)];
+        }  
+        
+        function playGame(game) {
+            if (game.playerMove === 'Rock') {
+                if (game.computerMove === 'Rock') {
+                    game.result = 'tie';
+                } else if (game.computerMove === 'Paper') {
+                    game.result = 'lose';
+                } else {
+                    game.result = 'win';
+                }
+            } else if (game.playerMove === 'Scissor') {
+                if (game.computerMove === 'Scissor') {
+                    game.result = 'tie';
+                } else if (game.computerMove === 'Rock') {
+                    game.result = 'lose';
+                } else {
+                    game.result = 'win';
+                }
+            } else if (game.playerMove === 'Paper') {
+                if (game.computerMove === 'Paper') {
+                    game.result = 'tie';
+                } else if (game.computerMove === 'Scissor') {
+                    game.result = 'lose';
+                } else {
+                    game.result = 'win';
+                }
+            }
+            
+            updateScore();
+            
+            // Standardized alert message for all cases
+            let resultMessage = `You chose ${game.playerMove}. The computer chose ${game.computerMove}. `;
+            
+            if (game.result === 'tie') {
+                resultMessage += "It's a tie!";
+            } else {
+                resultMessage += `You ${game.result}!`;
+            }
+            
+            resultMessage += `\nWins: ${scores.wins}, Loses: ${scores.loses}, Ties: ${scores.ties}.`;
+            
+            alert(resultMessage);
+        }
+
+        function updateScore() {
+            if (game.result === 'win') {
+                scores.wins += 1;
+            } else if (game.result === 'lose') {
+                scores.loses += 1;
+            } else {
+                scores.ties += 1;
+            }
+            localStorage.setItem('scores', JSON.stringify(scores));
+        }
+
+        function resetScore() {
+            scores.wins = 0;
+            scores.loses = 0;
+            scores.ties = 0;
+            localStorage.setItem('scores', JSON.stringify(scores));
+            alert("Score has been reset!");
+        }
+    </script>
+</body>
+</html>
